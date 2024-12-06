@@ -21,7 +21,7 @@ class WeatherController extends Controller
             'q' => "{$city},{$country_code}",
             'appid' => $this->apiKey,
             'units' => 'metric',
-            'lang' => 'es'
+            // 'lang' => 'es'
         ]);
 
         if ($response->failed()) {
@@ -45,7 +45,7 @@ class WeatherController extends Controller
             'q' => "{$city},{$country_code}",
             'appid' => $this->apiKey,
             'units' => 'metric',
-            'lang' => 'es'
+            // 'lang' => 'es'
         ]);
 
         if ($response->failed()) {

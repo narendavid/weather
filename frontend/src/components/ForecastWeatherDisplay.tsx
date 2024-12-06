@@ -18,7 +18,7 @@ const ForecastWeatherDisplay: React.FC = () => {
         <div className='w-full'>
             {forecast.length > 0 && (
                 <div className='bg-blue-200 bg-opacity-50 p-4 rounded-xl'>
-                    <h3>5-Day Forecast:</h3>
+                    <h3 className="text-2xl text-center">5-Day Forecast:</h3>
                     <div className='flex flex-wrap justify-center gap-6'>
                         {forecast.map((day, index) => (
                             <WeatherCard key={index} data={day} />

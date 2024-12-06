@@ -7,7 +7,11 @@ const CurrentWeatherDisplay = () => {
     const { currentWeather, loading, error } = useSelector((state: RootState) => state.weather);
 
     if (loading) {
-        return <span className="loading loading-spinner loading-lg"></span>
+        return (
+            <div className='flex justify-center items-center w-full h-[80vh]'>
+                <span className="loading loading-spinner loading-lg"></span>
+            </div>
+        )
     }
 
     if (error) {
@@ -15,22 +19,26 @@ const CurrentWeatherDisplay = () => {
     }
 
     return (
-        <>
+        <div>
             {currentWeather && (
-                <div className=''>
-                    <p>Date: {currentWeather.date}</p>
-                    <div className='flex items-center'>
+                <div className='flex flex-col gap-10'>
+                    <div className='flex justify-center my-[100px]'>
                         <div>
-                            <h2>{currentWeather.city}</h2>
-                            <p>{currentWeather.weather}</p>
-                            <p>{currentWeather.temperature}°C</p>
+                            <h2 className='text-2xl text-center font-semibold'>Date: {currentWeather.date}</h2>
+                            <div className='flex gap-8 items-center justify-center'>
+                                <div>
+                                    <p className='text-xl'>{currentWeather.city}</p>
+                                    <p className='text-xl'>{currentWeather.weather}</p>
+                                    <p className='text-xl'>{currentWeather.temperature}</p>
+                                </div>
+                                <WeatherIcon iconCode={currentWeather.icon} />
+                            </div>
                         </div>
-                        <WeatherIcon iconCode={currentWeather.icon} />
                     </div>
                     <ForecastWeatherDisplay />
                 </div>
             )}
-        </>
+        </div>
     );
 };
 
